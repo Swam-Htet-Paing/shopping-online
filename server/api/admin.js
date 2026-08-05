@@ -5,7 +5,7 @@ const express = require ('express') ;
  // daos
  const AdminDAO = require ('../models/AdminDAO') ;
  // login
- router . post ('/ login ', async function ( req , res ) {
+ router . post ('/login', async function ( req , res ) {
  const username = req . body . username ;
  const password = req . body . password ;
  if ( username && password ) {
@@ -20,7 +20,7 @@ const express = require ('express') ;
  res . json ({ success : false , message : 'Please input username and password ' }) ;
  }
  }) ;
- router . get ('/ token ', JwtUtil . checkToken , function ( req , res ) {
+ router . get ('/token', JwtUtil . checkToken , function ( req , res ) {
  const token = req . headers ['x - access - token '] || req . headers [' authorization '];
  res . json ({ success : true , message : 'Token is valid ', token : token }) ;
  }) ;
